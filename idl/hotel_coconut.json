@@ -1,0 +1,494 @@
+{
+  "address": "9bVeNhvzziFz7shQNKvq7vkjFfhqvpRqACQPNSmi4Q6g",
+  "metadata": {
+    "name": "hotel_coconut",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "book_room",
+      "discriminator": [
+        38,
+        235,
+        181,
+        197,
+        22,
+        238,
+        167,
+        69
+      ],
+      "accounts": [
+        {
+          "name": "hotel",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  116,
+                  101,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "tourist",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "tourist_usdc_account",
+          "writable": true
+        },
+        {
+          "name": "usdc_vault",
+          "writable": true
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "booking_price",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "distribute_profits",
+      "discriminator": [
+        251,
+        124,
+        40,
+        116,
+        101,
+        198,
+        242,
+        144
+      ],
+      "accounts": [
+        {
+          "name": "hotel",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  116,
+                  101,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "investor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "investor_hotel_token_account",
+          "writable": true
+        },
+        {
+          "name": "investor_usdc_account",
+          "writable": true
+        },
+        {
+          "name": "usdc_vault",
+          "writable": true
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize_hotel",
+      "discriminator": [
+        208,
+        74,
+        162,
+        238,
+        154,
+        60,
+        77,
+        172
+      ],
+      "accounts": [
+        {
+          "name": "hotel",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  116,
+                  101,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "hotel_token_mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "usdc_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "hotel"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "usdc_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "transfer_fee_basis_points",
+          "type": "u16"
+        },
+        {
+          "name": "interest_rate",
+          "type": "i16"
+        }
+      ]
+    },
+    {
+      "name": "invest",
+      "discriminator": [
+        13,
+        245,
+        180,
+        103,
+        254,
+        182,
+        121,
+        4
+      ],
+      "accounts": [
+        {
+          "name": "hotel",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  116,
+                  101,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "investor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "investor_usdc_account",
+          "writable": true
+        },
+        {
+          "name": "investor_hotel_token_account",
+          "writable": true
+        },
+        {
+          "name": "hotel_token_mint",
+          "writable": true
+        },
+        {
+          "name": "usdc_vault",
+          "writable": true
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "usdc_amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Hotel",
+      "discriminator": [
+        106,
+        159,
+        170,
+        202,
+        103,
+        172,
+        199,
+        81
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "BookingEvent",
+      "discriminator": [
+        230,
+        210,
+        62,
+        29,
+        77,
+        190,
+        130,
+        255
+      ]
+    },
+    {
+      "name": "InvestmentEvent",
+      "discriminator": [
+        8,
+        241,
+        95,
+        251,
+        114,
+        199,
+        103,
+        140
+      ]
+    },
+    {
+      "name": "ProfitDistributionEvent",
+      "discriminator": [
+        207,
+        151,
+        157,
+        48,
+        52,
+        87,
+        156,
+        44
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NoProfitToDistribute",
+      "msg": "No profit to distribute"
+    }
+  ],
+  "types": [
+    {
+      "name": "BookingEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tourist",
+            "type": "pubkey"
+          },
+          {
+            "name": "price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hotel",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_supply",
+            "type": "u64"
+          },
+          {
+            "name": "usdc_vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InvestmentEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "investor",
+            "type": "pubkey"
+          },
+          {
+            "name": "usdc_amount",
+            "type": "u64"
+          },
+          {
+            "name": "hotel_tokens",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProfitDistributionEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "investor",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}

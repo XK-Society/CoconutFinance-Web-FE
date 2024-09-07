@@ -1,95 +1,49 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import { Box, Heading, Text, Button, VStack, Container, Flex, Image, useColorModeValue } from '@chakra-ui/react'
+import Link from 'next/link'
+import { FaCoins, FaBed, FaMoneyBillWave } from 'react-icons/fa'
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const bgColor = useColorModeValue('gray.50', 'gray.900')
+  const textColor = useColorModeValue('gray.600', 'gray.200')
+  const headingColor = useColorModeValue('blue.600', 'blue.300')
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <Box bg={bgColor} minH="100vh">
+      <Container maxW="container.xl" py={20}>
+        <Flex direction={{ base: "column", lg: "row" }} align="center" justify="space-between">
+          <VStack spacing={8} align="flex-start" maxW="lg">
+            <Heading as="h1" size="2xl" color={headingColor}>
+              Welcome to Coconut
+            </Heading>
+            <Text fontSize="xl" color={textColor}>
+              Experience the future of decentralized hospitality. Invest, book, and share profits in our blockchain-powered paradise.
+            </Text>
+            <Flex wrap="wrap" gap={4}>
+              <Link href="/invest" passHref>
+                <Button as="a" colorScheme="blue" size="lg" leftIcon={<FaCoins />}>Invest Now</Button>
+              </Link>
+              <Link href="/book-room" passHref>
+                <Button as="a" colorScheme="green" size="lg" leftIcon={<FaBed />}>Book a Room</Button>
+              </Link>
+              <Link href="/distribute-profits" passHref>
+                <Button as="a" colorScheme="purple" size="lg" leftIcon={<FaMoneyBillWave />}>Distribute Profits</Button>
+              </Link>
+            </Flex>
+          </VStack>
+          <Box mt={{ base: 10, lg: 0 }} ml={{ lg: 10 }}>
+            <Image 
+              src="/coconut.jpg" 
+              alt="Coconut Hotel" 
+              borderRadius="lg" 
+              boxShadow="2xl" 
+              maxW="500px"
+              w="100%"
+              h="auto"
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
+  )
 }
